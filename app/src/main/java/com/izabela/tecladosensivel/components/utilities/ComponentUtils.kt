@@ -3,12 +3,12 @@ package com.izabela.tecladosensivel.components.utilities
 import android.app.Activity
 import android.content.Context
 import android.graphics.drawable.Drawable
-import android.support.v4.graphics.drawable.DrawableCompat
 import android.text.InputFilter
 import android.view.View
 import android.view.inputmethod.InputMethodManager
 import android.util.TypedValue
 import android.widget.EditText
+import androidx.core.graphics.drawable.DrawableCompat
 
 
 class ComponentUtils {

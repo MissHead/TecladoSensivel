@@ -2,10 +2,10 @@ package com.izabela.tecladosensivel
 
 import android.content.Intent
 import android.os.Bundle
-import android.support.v7.app.AppCompatActivity
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.LinearLayout
+import androidx.appcompat.app.AppCompatActivity
 import com.izabela.tecladosensivel.components.keyboard.CustomKeyboardView
 import com.izabela.tecladosensivel.components.textFields.CustomTextField
 import com.izabela.tecladosensivel.components.utilities.ComponentUtils

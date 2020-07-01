@@ -2,9 +2,9 @@ package com.izabela.tecladosensivel.components
 
 import android.content.Context
 import android.os.Handler
-import android.support.annotation.CallSuper
 import android.util.AttributeSet
 import android.widget.RelativeLayout
+import androidx.annotation.CallSuper
 import com.izabela.tecladosensivel.components.utilities.ComponentUtils
 
 
@@ -23,7 +23,8 @@ abstract class ResizableRelativeLayout(
         resetContent()
     }
 
-    @CallSuper fun resetContent() {
+    @CallSuper
+    fun resetContent() {
         removeAllViews()
         Handler().postDelayed({ configureSelf() }, 50)
     }
