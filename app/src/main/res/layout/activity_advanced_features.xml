@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent" android:layout_height="match_parent">
-
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -14,7 +13,6 @@
             android:orientation="vertical"
             android:paddingBottom="300dp"
             android:gravity="center">
-
             <!-- TECLADOS DO SISTEMA -->
             <TextView
                 android:layout_width="wrap_content"
@@ -58,33 +56,16 @@
                 android:textColor="@color/colorAccent"
                 android:textSize="@dimen/labelTextSize"
                 android:textStyle="bold"
-                android:text="@string/customKeyboardLabel"/>
+                android:text="@string/customKeyboardAndFieldsLabel"/>
 
-            <EditText
-                android:id="@+id/testNumberField"
-                android:layout_width="@dimen/fieldWidth"
+            <LinearLayout
+                android:id="@+id/customFieldWrapper"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="@dimen/fieldMarginBottom"
-                android:maxLength="20"
-                android:hint="@string/customNumber" />
+                android:orientation="vertical">
+            </LinearLayout>
 
-            <EditText
-                android:id="@+id/testNumberDecimalField"
-                android:layout_width="@dimen/fieldWidth"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="@dimen/fieldMarginBottom"
-                android:maxLength="20"
-                android:hint="@string/customNumberDecimal" />
-
-            <EditText
-                android:id="@+id/testQwertyField"
-                android:layout_width="@dimen/fieldWidth"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="@dimen/fieldMarginBottom"
-                android:maxLength="50"
-                android:hint="@string/customQwerty" />
-
-            <!-- SWITCH ACTIVITIES BUTTON -->
+            <!-- ALTERAR ATIVIDADES DO BOTÃO -->
             <Button
                 android:id="@+id/switchActivitiesButton"
                 android:layout_width="match_parent"
@@ -94,7 +75,7 @@
                 android:layout_marginEnd="20dp"
                 android:background="@color/colorAccent"
                 android:textColor="@android:color/white"
-                android:text="@string/toAdvancedButtonText"/>
+                android:text="@string/toMainButtonText"/>
         </LinearLayout>
     </ScrollView>
 

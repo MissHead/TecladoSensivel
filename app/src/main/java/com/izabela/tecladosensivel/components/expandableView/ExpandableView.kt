@@ -1,0 +1,68 @@
+package com.izabela.tecladosensivel.components.expandableView
+
+import android.content.Context
+import android.util.AttributeSet
+import android.view.View
+import com.izabela.tecladosensivel.components.ResizableRelativeLayout
+
+
+abstract class ExpandableView(
+    context: Context, attr: AttributeSet) :
+    ResizableRelativeLayout(context, attr) {
+
+    private var state: ExpandableState? = null
+    private val stateListeners = ArrayList<ExpandableStateListener>()
+
+    val isExpanded: Boolean
+        get() = state === ExpandableState.EXPANDED
+
+    init {
+        state = ExpandableState.EXPANDED
+        visibility = View.INVISIBLE
+    }
+
+    override fun onFinishInflate() {
+        super.onFinishInflate()
+        translateLayout()
+    }
+
+    fun registerListener(listener: ExpandableStateListener) {
+        stateListeners.add(listener)
+    }
+
+    fun translateLayout() {
+        if (state !== ExpandableState.EXPANDING && state !== ExpandableState.COLLAPSING) {
+            val pixels = 500.toDp
+            val millis : Long = pixels.toLong()
+            val deltaY: Float
+            when (state) {
+                ExpandableState.EXPANDED -> {
+                    updateState(ExpandableState.COLLAPSING)
+                    deltaY = pixels.toFloat()
+                    animate().translationY(deltaY).setDuration(millis).withEndAction {
+                        updateState(ExpandableState.COLLAPSED)
+                        visibility = View.INVISIBLE
+                    }.start()
+                }
+                ExpandableState.COLLAPSED -> {
+                    updateState(ExpandableState.EXPANDING)
+                    visibility = View.VISIBLE
+                    deltaY = 0.0f
+                    animate().translationY(deltaY).setDuration(millis).withEndAction {
+                        updateState(ExpandableState.EXPANDED)
+                    }.start()
+                }
+                else -> return
+            }
+        }
+    }
+
+    private fun updateState(nextState: ExpandableState) {
+        state = nextState
+        for (listener in stateListeners) {
+            listener.onStateChange(nextState)
+        }
+    }
+
+    abstract override fun configureSelf()
+}

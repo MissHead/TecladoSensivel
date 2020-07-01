@@ -1,12 +1,17 @@
 <resources>
-    <string name="app_name">TecladoSensivel</string>
-    <string name="title_activity_main">MainActivity</string>
-    <!-- Strings used for fragments for navigation -->
-    <string name="first_fragment_label">First Fragment</string>
-    <string name="second_fragment_label">Second Fragment</string>
-    <string name="next">Next</string>
-    <string name="previous">Previous</string>
+    <string name="app_name">Teclado Sensível</string>
 
-    <string name="hello_first_fragment">Hello first fragment</string>
-    <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
+    <string name="systemKeyboardLabel">Teclado do Sistema</string>
+    <string name="systemNumber">Teclado Numérico</string>
+    <string name="systemNumberDecimal">Teclado Numérico Decimal</string>
+    <string name="systemQwerty">Teclado QWERTY</string>
+
+    <string name="customKeyboardLabel">Teclado Sensível</string>
+    <string name="customKeyboardAndFieldsLabel">Teclados e Campos</string>
+    <string name="customNumber">Teclado Numérico</string>
+    <string name="customNumberDecimal">Teclado Numérico Decimal</string>
+    <string name="customQwerty">Teclado QWERTY</string>
+
+    <string name="toMainButtonText">Mudar para opção do sistema</string>
+    <string name="toAdvancedButtonText">Mudar para opção avançada</string>
 </resources>

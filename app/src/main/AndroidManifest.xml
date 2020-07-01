@@ -1,6 +1,5 @@
-<?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.tecladosensivel">
+    package="com.izabela.tecladosensivel">
 
     <application
         android:allowBackup="true"
@@ -8,23 +7,22 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme">
+        android:theme="@style/AppTheme" >
+
         <activity
             android:name=".MainActivity"
-            android:label="@string/title_activity_main"
-            android:theme="@style/AppTheme.NoActionBar">
+            android:windowSoftInputMode="stateAlwaysHidden|adjustNothing"
+            android:configChanges="orientation|screenSize">
             <intent-filter>
-                <action android:name="android.intent.action.MAIN"/>
-                <category android:name="android.intent.category.LAUNCHER"/>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <service android:name=".MyInputMethodService"
-            android:permission="android.permission.BIND_INPUT_METHOD">
-            <intent-filter>
-                <action android:name="android.view.InputMethod"/>
-            </intent-filter>
-            <meta-data android:name="android.view.im" android:resource="@xml/method"/>
-        </service>
-    </application>
 
+        <activity
+            android:name=".AdvancedFeaturesActivity"
+            android:windowSoftInputMode="stateAlwaysHidden|adjustNothing"
+            android:configChanges="orientation|screenSize" />
+
+    </application>
 </manifest>
