@@ -1,84 +1,50 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent" android:layout_height="match_parent">
+
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_marginTop="100dp">
+        android:layout_height="606dp"
+        android:layout_above="@+id/customKeyboardView"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="0dp"
+        android:layout_marginBottom="0dp">
+
         <LinearLayout
             android:id="@+id/testLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:gravity="center"
             android:orientation="vertical"
-            android:paddingBottom="300dp"
-            android:gravity="center">
-            <!-- TECLADOS DO SISTEMA -->
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_margin="@dimen/labelMargin"
-                android:textColor="@color/colorAccent"
-                android:textSize="@dimen/labelTextSize"
-                android:textStyle="bold"
-                android:text="@string/systemKeyboardLabel"/>
-
-            <EditText
-                android:layout_width="@dimen/fieldWidth"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="@dimen/fieldMarginBottom"
-                android:maxLength="20"
-                android:inputType="number"
-                android:hint="@string/systemNumber"
-                android:autofillHints="" />
-
-            <EditText
-                android:layout_width="@dimen/fieldWidth"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="@dimen/fieldMarginBottom"
-                android:maxLength="20"
-                android:inputType="numberDecimal"
-                android:hint="@string/systemNumberDecimal"
-                android:autofillHints="" />
-
-            <EditText
-                android:layout_width="@dimen/fieldWidth"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="@dimen/fieldMarginBottom"
-                android:maxLength="50"
-                android:inputType="text"
-                android:hint="@string/systemQwerty"
-                android:autofillHints="" />
-
+            android:paddingBottom="300dp">
 
             <!-- TECLADO SENSIVEL -->
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_margin="@dimen/labelMargin"
+                android:text="@string/customKeyboardAndFieldsLabel"
                 android:textColor="@color/colorAccent"
                 android:textSize="@dimen/labelTextSize"
-                android:textStyle="bold"
-                android:text="@string/customKeyboardAndFieldsLabel"/>
+                android:textStyle="bold" />
 
             <LinearLayout
                 android:id="@+id/customFieldWrapper"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:orientation="vertical">
-            </LinearLayout>
+                android:orientation="vertical"></LinearLayout>
 
             <!-- ALTERAR ATIVIDADES DO BOTÃO -->
             <Button
                 android:id="@+id/switchActivitiesButton"
                 android:layout_width="match_parent"
-                android:layout_height="80dp"
-                android:layout_marginTop="120dp"
+                android:layout_height="match_parent"
                 android:layout_marginStart="20dp"
+                android:layout_marginTop="120dp"
                 android:layout_marginEnd="20dp"
                 android:background="@color/colorAccent"
-                android:textColor="@android:color/white"
-                android:text="@string/toMainButtonText"/>
+                android:text="@string/toMainButtonText"
+                android:textColor="@android:color/white" />
         </LinearLayout>
     </ScrollView>
 
