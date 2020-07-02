@@ -11,8 +11,8 @@ class NumberKeyboardLayout(context: Context, controller: KeyboardController?) :
     constructor(context: Context): this(context, null)
 
     override fun createRows(): List<LinearLayout> {
-        val columnWidth = 0.20f
-        textSize = 22.0f
+        val columnWidth = 0.21f
+        textSize = 21.0f
 
         val rowOne = ArrayList<View>()
         rowOne.add(createButton("1", columnWidth, '1'))
@@ -33,9 +33,9 @@ class NumberKeyboardLayout(context: Context, controller: KeyboardController?) :
         rowFour.add(createButton("⌫", columnWidth, KeyboardController.SpecialKey.BACKSPACE))
         rowFour.add(createButton("0", columnWidth, '0'))
         if (hasNextFocus) {
-            rowFour.add(createButton("Next", columnWidth, KeyboardController.SpecialKey.NEXT))
+            rowFour.add(createButton("PRÓX", columnWidth, KeyboardController.SpecialKey.NEXT))
         } else {
-            rowFour.add(createButton("Done", columnWidth, KeyboardController.SpecialKey.DONE))
+            rowFour.add(createButton("OK", columnWidth, KeyboardController.SpecialKey.DONE))
         }
 
         val rows = ArrayList<LinearLayout>()

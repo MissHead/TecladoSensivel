@@ -12,8 +12,8 @@ class NumberDecimalKeyboardLayout(context: Context, controller: KeyboardControll
     constructor(context: Context): this(context, null)
 
     override fun createRows(): List<LinearLayout> {
-        val columnWidth = 0.20f
-        textSize = 22.0f
+        val columnWidth = 0.21f
+        textSize = 21.0f
 
         val rowOne = ArrayList<View>()
         rowOne.add(createButton("1", columnWidth, '1'))
@@ -26,9 +26,9 @@ class NumberDecimalKeyboardLayout(context: Context, controller: KeyboardControll
         rowTwo.add(createButton("5", columnWidth, '5'))
         rowTwo.add(createButton("6", columnWidth, '6'))
         if (hasNextFocus) {
-            rowTwo.add(createButton("Next", columnWidth, KeyboardController.SpecialKey.NEXT))
+            rowTwo.add(createButton("PRÓX", columnWidth, KeyboardController.SpecialKey.NEXT))
         } else {
-            rowTwo.add(createButton("Done", columnWidth, KeyboardController.SpecialKey.DONE))
+            rowTwo.add(createButton("OK", columnWidth, KeyboardController.SpecialKey.DONE))
         }
 
         val rowThree = ArrayList<View>()
@@ -41,7 +41,7 @@ class NumberDecimalKeyboardLayout(context: Context, controller: KeyboardControll
         rowFour.add(createButton("⇦", columnWidth, KeyboardController.SpecialKey.BACK))
         rowFour.add(createButton("0", columnWidth, '0'))
         rowFour.add(createButton("⇨", columnWidth, KeyboardController.SpecialKey.FORWARD))
-        rowFour.add(createButton("Clear", columnWidth, KeyboardController.SpecialKey.CLEAR))
+        rowFour.add(createButton("APAGAR", columnWidth, KeyboardController.SpecialKey.CLEAR))
 
         val rows = ArrayList<LinearLayout>()
         rows.add(createRow(rowOne))
