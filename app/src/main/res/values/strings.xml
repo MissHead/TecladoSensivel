@@ -7,11 +7,11 @@
     <string name="systemQwerty">Teclado QWERTY</string>
 
     <string name="customKeyboardLabel">Teclado Sensível</string>
-    <string name="customKeyboardAndFieldsLabel">Teclados e Campos</string>
+    <string name="customKeyboardAndFieldsLabel">Interatividade</string>
     <string name="customNumber">Teclado Numérico</string>
     <string name="customNumberDecimal">Teclado Numérico Decimal</string>
     <string name="customQwerty">Teclado QWERTY</string>
 
-    <string name="toMainButtonText">Mudar para opção do sistema</string>
-    <string name="toAdvancedButtonText">Mudar para opção avançada</string>
+    <string name="toMainButtonText">Mudar para Teclado do Sistema</string>
+    <string name="toAdvancedButtonText">Mudar para Teclado Sensível</string>
 </resources>

@@ -32,7 +32,7 @@ class CustomKeyboardView(context: Context, attr: AttributeSet) : ExpandableView(
     private val keyboardListener: KeyboardListener
 
     init {
-        setBackgroundColor(Color.GRAY)
+        setBackgroundColor(Color.WHITE)
 
         keyboardListener = object: KeyboardListener {
             override fun characterClicked(c: Char) {
@@ -65,7 +65,7 @@ class CustomKeyboardView(context: Context, attr: AttributeSet) : ExpandableView(
 
     fun registerEditText(type: KeyboardType, field: EditText) {
         if (!field.isEnabled) {
-            return  // disabled fields do not have input connections
+            return  // campo inativo nao tem input
         }
 
         field.setRawInputType(InputType.TYPE_CLASS_TEXT)

@@ -29,7 +29,8 @@
                 android:layout_marginBottom="@dimen/fieldMarginBottom"
                 android:maxLength="20"
                 android:inputType="number"
-                android:hint="@string/systemNumber" />
+                android:hint="@string/systemNumber"
+                android:autofillHints="" />
 
             <EditText
                 android:layout_width="@dimen/fieldWidth"
@@ -37,7 +38,8 @@
                 android:layout_marginBottom="@dimen/fieldMarginBottom"
                 android:maxLength="20"
                 android:inputType="numberDecimal"
-                android:hint="@string/systemNumberDecimal" />
+                android:hint="@string/systemNumberDecimal"
+                android:autofillHints="" />
 
             <EditText
                 android:layout_width="@dimen/fieldWidth"
@@ -45,7 +47,8 @@
                 android:layout_marginBottom="@dimen/fieldMarginBottom"
                 android:maxLength="50"
                 android:inputType="text"
-                android:hint="@string/systemQwerty" />
+                android:hint="@string/systemQwerty"
+                android:autofillHints="" />
 
 
             <!-- TECLADO SENSIVEL -->
