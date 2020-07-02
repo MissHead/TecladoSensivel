@@ -17,7 +17,7 @@ class QwertyKeyboardLayout(context: Context, controller: KeyboardController?) :
 
     private var capsState: CapsState = CapsState.CAPS_DISABLED
     private var symbolsState: SymbolState = SymbolState.SYMBOLS_DISABLED
-    private val columnWidth = 0.1f
+    private val columnWidth = 0.09f
 
     private enum class CapsState {
         CAPS_DISABLED,
@@ -135,7 +135,7 @@ class QwertyKeyboardLayout(context: Context, controller: KeyboardController?) :
         rowThree.add(createButton("l", columnWidth, 'l'))
         if (hasNextFocus) {
             rowThree.add(createButton(
-                "PŔOXIMO", (columnWidth * 1.2f), KeyboardController.SpecialKey.NEXT))
+                "PŔOX", (columnWidth * 1.2f), KeyboardController.SpecialKey.NEXT))
         } else {
             rowThree.add(createButton(
                 "OK", (columnWidth * 1.2f), KeyboardController.SpecialKey.DONE))
@@ -158,8 +158,6 @@ class QwertyKeyboardLayout(context: Context, controller: KeyboardController?) :
         rowFive.add(createButton(
             "SINAIS", (columnWidth * 1.8f), KeyboardController.SpecialKey.SYMBOL))
         rowFive.add(createButton("", columnWidth * 6.8f, ' '))
-        rowFive.add(createButton("⇦", columnWidth, KeyboardController.SpecialKey.BACK))
-        rowFive.add(createButton("⇨", columnWidth, KeyboardController.SpecialKey.FORWARD))
 
         val rows = ArrayList<LinearLayout>()
         rows.add(createNumbersRow())
@@ -221,8 +219,6 @@ class QwertyKeyboardLayout(context: Context, controller: KeyboardController?) :
         rowFive.add(createButton(
             "SINAIS", (columnWidth * 1.8f), KeyboardController.SpecialKey.SYMBOL))
         rowFive.add(createButton("", columnWidth * 6.8f, ' '))
-        rowFive.add(createButton("⇦", columnWidth, KeyboardController.SpecialKey.BACK))
-        rowFive.add(createButton("⇨", columnWidth, KeyboardController.SpecialKey.FORWARD))
 
         val rows = ArrayList<LinearLayout>()
         rows.add(createNumbersRow())
@@ -279,10 +275,8 @@ class QwertyKeyboardLayout(context: Context, controller: KeyboardController?) :
 
         val rowFive = ArrayList<View>()
         rowFive.add(createButton(
-            "SINAIS(1/2)", (columnWidth *1.8f), KeyboardController.SpecialKey.SYMBOL))
+            "1/2", (columnWidth *1.8f), KeyboardController.SpecialKey.SYMBOL))
         rowFive.add(createButton("", columnWidth * 6.8f, ' '))
-        rowFive.add(createButton("⇦", columnWidth, KeyboardController.SpecialKey.BACK))
-        rowFive.add(createButton("⇨", columnWidth, KeyboardController.SpecialKey.FORWARD))
 
         val rows = ArrayList<LinearLayout>()
         rows.add(createNumbersRow())
@@ -319,10 +313,8 @@ class QwertyKeyboardLayout(context: Context, controller: KeyboardController?) :
 
         val rowFour = ArrayList<View>()
         rowFour.add(createButton(
-            "SINAIS(2/2)", (columnWidth * 1.8f), KeyboardController.SpecialKey.SYMBOL))
+            "2/2", (columnWidth * 1.8f), KeyboardController.SpecialKey.SYMBOL))
         rowFour.add(createButton("", columnWidth * 6.8f, ' '))
-        rowFour.add(createButton("⇦", columnWidth, KeyboardController.SpecialKey.BACK))
-        rowFour.add(createButton("⇨", columnWidth, KeyboardController.SpecialKey.FORWARD))
 
         val rows = ArrayList<LinearLayout>()
         rows.add(createNumbersRow())
