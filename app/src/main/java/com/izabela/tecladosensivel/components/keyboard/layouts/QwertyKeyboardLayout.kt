@@ -120,7 +120,7 @@ class QwertyKeyboardLayout(context: Context, controller: KeyboardController?) :
         rowTwo.add(createButton("i", columnWidth, 'i'))
         rowTwo.add(createButton("o", columnWidth, 'o'))
         rowTwo.add(createButton("p", columnWidth, 'p'))
-        rowTwo.add(createButton("⌫", columnWidth, KeyboardController.SpecialKey.BACKSPACE))
+        rowTwo.add(createButton("apagar", columnWidth, KeyboardController.SpecialKey.BACKSPACE))
 
         val rowThree = ArrayList<View>()
         rowThree.add(createSpacer((columnWidth * 0.4f)))
@@ -135,10 +135,10 @@ class QwertyKeyboardLayout(context: Context, controller: KeyboardController?) :
         rowThree.add(createButton("l", columnWidth, 'l'))
         if (hasNextFocus) {
             rowThree.add(createButton(
-                "PŔOX", (columnWidth * 1.2f), KeyboardController.SpecialKey.NEXT))
+                "próximo", (columnWidth * 1.2f), KeyboardController.SpecialKey.NEXT))
         } else {
             rowThree.add(createButton(
-                "OK", (columnWidth * 1.2f), KeyboardController.SpecialKey.DONE))
+                "ok", (columnWidth * 1.2f), KeyboardController.SpecialKey.DONE))
         }
 
         val rowFour = ArrayList<View>()
@@ -156,7 +156,7 @@ class QwertyKeyboardLayout(context: Context, controller: KeyboardController?) :
 
         val rowFive = ArrayList<View>()
         rowFive.add(createButton(
-            "SINAIS", (columnWidth * 1.8f), KeyboardController.SpecialKey.SYMBOL))
+            "sinais", (columnWidth * 1.8f), KeyboardController.SpecialKey.SYMBOL))
         rowFive.add(createButton("", columnWidth * 6.8f, ' '))
 
         val rows = ArrayList<LinearLayout>()
@@ -181,7 +181,7 @@ class QwertyKeyboardLayout(context: Context, controller: KeyboardController?) :
         rowTwo.add(createButton("I", columnWidth, 'I'))
         rowTwo.add(createButton("O", columnWidth, 'O'))
         rowTwo.add(createButton("P", columnWidth, 'P'))
-        rowTwo.add(createButton("⌫", columnWidth, KeyboardController.SpecialKey.BACKSPACE))
+        rowTwo.add(createButton("apagar", columnWidth, KeyboardController.SpecialKey.BACKSPACE))
 
         val rowThree = ArrayList<View>()
         rowThree.add(createSpacer((columnWidth * 0.4f)))
@@ -196,10 +196,10 @@ class QwertyKeyboardLayout(context: Context, controller: KeyboardController?) :
         rowThree.add(createButton("L", columnWidth, 'L'))
         if (hasNextFocus) {
             rowThree.add(createButton(
-                "PRÓX", (columnWidth * 1.2f), KeyboardController.SpecialKey.NEXT))
+                "próximo", (columnWidth * 1.2f), KeyboardController.SpecialKey.NEXT))
         } else {
             rowThree.add(createButton(
-                "OK", (columnWidth * 1.2f), KeyboardController.SpecialKey.DONE))
+                "ok", (columnWidth * 1.2f), KeyboardController.SpecialKey.DONE))
         }
 
         val rowFour = ArrayList<View>()
@@ -217,7 +217,7 @@ class QwertyKeyboardLayout(context: Context, controller: KeyboardController?) :
 
         val rowFive = ArrayList<View>()
         rowFive.add(createButton(
-            "SINAIS", (columnWidth * 1.8f), KeyboardController.SpecialKey.SYMBOL))
+            "sinais", (columnWidth * 1.8f), KeyboardController.SpecialKey.SYMBOL))
         rowFive.add(createButton("", columnWidth * 6.8f, ' '))
 
         val rows = ArrayList<LinearLayout>()
@@ -238,7 +238,7 @@ class QwertyKeyboardLayout(context: Context, controller: KeyboardController?) :
         rowTwo.add(createButton("=", columnWidth, '='))
         rowTwo.add(createButton("%", columnWidth, '%'))
         rowTwo.add(createButton("_", columnWidth, '_'))
-        rowTwo.add(createButton("⌫", columnWidth, KeyboardController.SpecialKey.BACKSPACE))
+        rowTwo.add(createButton("apagar", columnWidth, KeyboardController.SpecialKey.BACKSPACE))
 
         val rowThree = ArrayList<View>()
         rowThree.add(createSpacer((columnWidth * 0.5f)))
@@ -253,10 +253,10 @@ class QwertyKeyboardLayout(context: Context, controller: KeyboardController?) :
         rowThree.add(createButton(")", columnWidth, ')'))
         if (hasNextFocus) {
             rowThree.add(createButton(
-                "PRÓX", (columnWidth * 1.2f), KeyboardController.SpecialKey.NEXT))
+                "próximo", (columnWidth * 1.2f), KeyboardController.SpecialKey.NEXT))
         } else {
             rowThree.add(createButton(
-                "OK", (columnWidth * 1.2f), KeyboardController.SpecialKey.DONE))
+                "ok", (columnWidth * 1.2f), KeyboardController.SpecialKey.DONE))
         }
 
         val rowFour = ArrayList<View>()
@@ -299,16 +299,16 @@ class QwertyKeyboardLayout(context: Context, controller: KeyboardController?) :
         rowTwo.add(createButton("}", columnWidth, '}'))
         rowTwo.add(createButton("[", columnWidth, '['))
         rowTwo.add(createButton("]", columnWidth, ']'))
-        rowTwo.add(createButton("APAGAR", columnWidth, KeyboardController.SpecialKey.BACKSPACE))
+        rowTwo.add(createButton("apagar", columnWidth, KeyboardController.SpecialKey.BACKSPACE))
 
         val rowThree = ArrayList<View>()
         rowThree.add(createSpacer((columnWidth * 0.4f)))
         if (hasNextFocus) {
             rowThree.add(createButton(
-                "PRÓX", (columnWidth * 1.2f), KeyboardController.SpecialKey.NEXT))
+                "próximo", (columnWidth * 1.2f), KeyboardController.SpecialKey.NEXT))
         } else {
             rowThree.add(createButton(
-                "OK", (columnWidth * 1.2f), KeyboardController.SpecialKey.DONE))
+                "ok", (columnWidth * 1.2f), KeyboardController.SpecialKey.DONE))
         }
 
         val rowFour = ArrayList<View>()
@@ -337,7 +337,7 @@ class QwertyKeyboardLayout(context: Context, controller: KeyboardController?) :
         row.add(createButton("8", columnWidth, '8'))
         row.add(createButton("9", columnWidth, '9'))
         row.add(createButton("0", columnWidth, '0'))
-        row.add(createButton("DEL", columnWidth, KeyboardController.SpecialKey.DELETE))
+        row.add(createButton("del", columnWidth, KeyboardController.SpecialKey.DELETE))
         return createRow(row)
     }
 
