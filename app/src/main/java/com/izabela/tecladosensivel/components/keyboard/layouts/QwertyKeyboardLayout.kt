@@ -120,7 +120,6 @@ class QwertyKeyboardLayout(context: Context, controller: KeyboardController?) :
         rowTwo.add(createButton("i", columnWidth, 'i'))
         rowTwo.add(createButton("o", columnWidth, 'o'))
         rowTwo.add(createButton("p", columnWidth, 'p'))
-        rowTwo.add(createButton("apagar", columnWidth, KeyboardController.SpecialKey.BACKSPACE))
 
         val rowThree = ArrayList<View>()
         rowThree.add(createSpacer((columnWidth * 0.4f)))
@@ -158,6 +157,7 @@ class QwertyKeyboardLayout(context: Context, controller: KeyboardController?) :
         rowFive.add(createButton(
             "sinais", (columnWidth * 1.8f), KeyboardController.SpecialKey.SYMBOL))
         rowFive.add(createButton("", columnWidth * 6.8f, ' '))
+        rowFive.add(createButton("apagar", columnWidth, KeyboardController.SpecialKey.BACKSPACE))
 
         val rows = ArrayList<LinearLayout>()
         rows.add(createNumbersRow())
@@ -181,7 +181,6 @@ class QwertyKeyboardLayout(context: Context, controller: KeyboardController?) :
         rowTwo.add(createButton("I", columnWidth, 'I'))
         rowTwo.add(createButton("O", columnWidth, 'O'))
         rowTwo.add(createButton("P", columnWidth, 'P'))
-        rowTwo.add(createButton("apagar", columnWidth, KeyboardController.SpecialKey.BACKSPACE))
 
         val rowThree = ArrayList<View>()
         rowThree.add(createSpacer((columnWidth * 0.4f)))
@@ -219,6 +218,7 @@ class QwertyKeyboardLayout(context: Context, controller: KeyboardController?) :
         rowFive.add(createButton(
             "sinais", (columnWidth * 1.8f), KeyboardController.SpecialKey.SYMBOL))
         rowFive.add(createButton("", columnWidth * 6.8f, ' '))
+        rowFive.add(createButton("apagar", columnWidth, KeyboardController.SpecialKey.BACKSPACE))
 
         val rows = ArrayList<LinearLayout>()
         rows.add(createNumbersRow())
@@ -238,7 +238,6 @@ class QwertyKeyboardLayout(context: Context, controller: KeyboardController?) :
         rowTwo.add(createButton("=", columnWidth, '='))
         rowTwo.add(createButton("%", columnWidth, '%'))
         rowTwo.add(createButton("_", columnWidth, '_'))
-        rowTwo.add(createButton("apagar", columnWidth, KeyboardController.SpecialKey.BACKSPACE))
 
         val rowThree = ArrayList<View>()
         rowThree.add(createSpacer((columnWidth * 0.5f)))
@@ -277,6 +276,7 @@ class QwertyKeyboardLayout(context: Context, controller: KeyboardController?) :
         rowFive.add(createButton(
             "1/2", (columnWidth *1.8f), KeyboardController.SpecialKey.SYMBOL))
         rowFive.add(createButton("", columnWidth * 6.8f, ' '))
+        rowFive.add(createButton("apagar", columnWidth, KeyboardController.SpecialKey.BACKSPACE))
 
         val rows = ArrayList<LinearLayout>()
         rows.add(createNumbersRow())
@@ -299,7 +299,6 @@ class QwertyKeyboardLayout(context: Context, controller: KeyboardController?) :
         rowTwo.add(createButton("}", columnWidth, '}'))
         rowTwo.add(createButton("[", columnWidth, '['))
         rowTwo.add(createButton("]", columnWidth, ']'))
-        rowTwo.add(createButton("apagar", columnWidth, KeyboardController.SpecialKey.BACKSPACE))
 
         val rowThree = ArrayList<View>()
         rowThree.add(createSpacer((columnWidth * 0.4f)))
@@ -315,6 +314,7 @@ class QwertyKeyboardLayout(context: Context, controller: KeyboardController?) :
         rowFour.add(createButton(
             "2/2", (columnWidth * 1.8f), KeyboardController.SpecialKey.SYMBOL))
         rowFour.add(createButton("", columnWidth * 6.8f, ' '))
+        rowFour.add(createButton("apagar", columnWidth, KeyboardController.SpecialKey.BACKSPACE))
 
         val rows = ArrayList<LinearLayout>()
         rows.add(createNumbersRow())
@@ -337,7 +337,6 @@ class QwertyKeyboardLayout(context: Context, controller: KeyboardController?) :
         row.add(createButton("8", columnWidth, '8'))
         row.add(createButton("9", columnWidth, '9'))
         row.add(createButton("0", columnWidth, '0'))
-        row.add(createButton("del", columnWidth, KeyboardController.SpecialKey.DELETE))
         return createRow(row)
     }
 
