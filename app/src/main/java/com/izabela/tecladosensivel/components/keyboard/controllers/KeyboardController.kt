@@ -26,7 +26,7 @@ abstract class KeyboardController(private val inputConnection: InputConnection) 
         }
 
         private val textToSpeechEngine: TextToSpeech by lazy {
-            TextToSpeech(Activity., TextToSpeech.OnInitListener { status ->
+            TextToSpeech(this.getApplicationContext() , TextToSpeech.OnInitListener { status ->
                     if (status == TextToSpeech.SUCCESS) {
                         textToSpeechEngine.language = Locale.UK
                     }
