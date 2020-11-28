@@ -134,10 +134,10 @@ class QwertyKeyboardLayout(context: Context, controller: KeyboardController?) :
         rowThree.add(createButton("l", columnWidth, 'l'))
         if (hasNextFocus) {
             rowThree.add(createButton(
-                "próximo", (columnWidth * 1.2f), KeyboardController.SpecialKey.NEXT))
+                "próx", (columnWidth * 1.2f), KeyboardController.SpecialKey.NEXT))
         } else {
             rowThree.add(createButton(
-                "ok", (columnWidth * 1.2f), KeyboardController.SpecialKey.DONE))
+                "+", (columnWidth * 1.2f), KeyboardController.SpecialKey.DONE))
         }
 
         val rowFour = ArrayList<View>()
@@ -155,9 +155,9 @@ class QwertyKeyboardLayout(context: Context, controller: KeyboardController?) :
 
         val rowFive = ArrayList<View>()
         rowFive.add(createButton(
-            "sinais", (columnWidth * 1.8f), KeyboardController.SpecialKey.SYMBOL))
-        rowFive.add(createButton("", columnWidth * 6.8f, ' '))
-        rowFive.add(createButton("apagar", columnWidth, KeyboardController.SpecialKey.BACKSPACE))
+            "...", (columnWidth * 1.99f), KeyboardController.SpecialKey.SYMBOL))
+        rowFive.add(createButton("", columnWidth * 4.8f, ' '))
+        rowFive.add(createButton("—", columnWidth, KeyboardController.SpecialKey.BACKSPACE))
 
         val rows = ArrayList<LinearLayout>()
         rows.add(createNumbersRow())
@@ -195,10 +195,10 @@ class QwertyKeyboardLayout(context: Context, controller: KeyboardController?) :
         rowThree.add(createButton("L", columnWidth, 'L'))
         if (hasNextFocus) {
             rowThree.add(createButton(
-                "próximo", (columnWidth * 1.2f), KeyboardController.SpecialKey.NEXT))
+                "próx", (columnWidth * 1.2f), KeyboardController.SpecialKey.NEXT))
         } else {
             rowThree.add(createButton(
-                "ok", (columnWidth * 1.2f), KeyboardController.SpecialKey.DONE))
+                "+", (columnWidth * 1.2f), KeyboardController.SpecialKey.DONE))
         }
 
         val rowFour = ArrayList<View>()
@@ -216,9 +216,9 @@ class QwertyKeyboardLayout(context: Context, controller: KeyboardController?) :
 
         val rowFive = ArrayList<View>()
         rowFive.add(createButton(
-            "sinais", (columnWidth * 1.8f), KeyboardController.SpecialKey.SYMBOL))
-        rowFive.add(createButton("", columnWidth * 6.8f, ' '))
-        rowFive.add(createButton("apagar", columnWidth, KeyboardController.SpecialKey.BACKSPACE))
+            "...", (columnWidth * 1.99f), KeyboardController.SpecialKey.SYMBOL))
+        rowFive.add(createButton("", columnWidth * 4.8f, ' '))
+        rowFive.add(createButton("—", columnWidth, KeyboardController.SpecialKey.BACKSPACE))
 
         val rows = ArrayList<LinearLayout>()
         rows.add(createNumbersRow())
@@ -252,16 +252,16 @@ class QwertyKeyboardLayout(context: Context, controller: KeyboardController?) :
         rowThree.add(createButton(")", columnWidth, ')'))
         if (hasNextFocus) {
             rowThree.add(createButton(
-                "próximo", (columnWidth * 1.2f), KeyboardController.SpecialKey.NEXT))
+                "próx", (columnWidth * 1.2f), KeyboardController.SpecialKey.NEXT))
         } else {
             rowThree.add(createButton(
-                "ok", (columnWidth * 1.2f), KeyboardController.SpecialKey.DONE))
+                "+", (columnWidth * 1.2f), KeyboardController.SpecialKey.DONE))
         }
 
         val rowFour = ArrayList<View>()
 
         rowFour.add(createCapsButton())
-        rowFour.add(createButton("-", columnWidth, '-'))
+        rowFour.add(createButton("—", columnWidth, '-'))
         rowFour.add(createButton("'", columnWidth, '\''))
         rowFour.add(createButton("\"", columnWidth, '\"'))
         rowFour.add(createButton(":", columnWidth, ':'))
@@ -275,8 +275,8 @@ class QwertyKeyboardLayout(context: Context, controller: KeyboardController?) :
         val rowFive = ArrayList<View>()
         rowFive.add(createButton(
             "1/2", (columnWidth *1.8f), KeyboardController.SpecialKey.SYMBOL))
-        rowFive.add(createButton("", columnWidth * 6.8f, ' '))
-        rowFive.add(createButton("apagar", columnWidth, KeyboardController.SpecialKey.BACKSPACE))
+        rowFive.add(createButton("", columnWidth * 4.8f, ' '))
+        rowFive.add(createButton("—", columnWidth, KeyboardController.SpecialKey.BACKSPACE))
 
         val rows = ArrayList<LinearLayout>()
         rows.add(createNumbersRow())
@@ -304,17 +304,17 @@ class QwertyKeyboardLayout(context: Context, controller: KeyboardController?) :
         rowThree.add(createSpacer((columnWidth * 0.4f)))
         if (hasNextFocus) {
             rowThree.add(createButton(
-                "próximo", (columnWidth * 1.2f), KeyboardController.SpecialKey.NEXT))
+                "próx", (columnWidth * 1.2f), KeyboardController.SpecialKey.NEXT))
         } else {
             rowThree.add(createButton(
-                "ok", (columnWidth * 1.2f), KeyboardController.SpecialKey.DONE))
+                "+", (columnWidth * 1.2f), KeyboardController.SpecialKey.DONE))
         }
 
         val rowFour = ArrayList<View>()
         rowFour.add(createButton(
             "2/2", (columnWidth * 1.8f), KeyboardController.SpecialKey.SYMBOL))
-        rowFour.add(createButton("", columnWidth * 6.8f, ' '))
-        rowFour.add(createButton("apagar", columnWidth, KeyboardController.SpecialKey.BACKSPACE))
+        rowFour.add(createButton("", columnWidth * 4.8f, ' '))
+        rowFour.add(createButton("—", columnWidth, KeyboardController.SpecialKey.BACKSPACE))
 
         val rows = ArrayList<LinearLayout>()
         rows.add(createNumbersRow())
@@ -346,14 +346,14 @@ class QwertyKeyboardLayout(context: Context, controller: KeyboardController?) :
             SymbolState.SYMBOLS_DISABLED -> {
                 when(capsState) {
                     CapsState.CAPS_DISABLED -> {
-                        createButton("⇧", columnWidth, KeyboardController.SpecialKey.CAPS)
+                        createButton("^", columnWidth, KeyboardController.SpecialKey.CAPS)
                     }
                     CapsState.CAPS_ENABLED -> {
-                        createButton("⬆", columnWidth, KeyboardController.SpecialKey.CAPS)
+                        createButton("^", columnWidth, KeyboardController.SpecialKey.CAPS)
                     }
                     CapsState.CAPS_LOCK_ENABLED -> {
                         val button = createButton(
-                            "⇧", columnWidth, KeyboardController.SpecialKey.CAPS)
+                            "^", columnWidth, KeyboardController.SpecialKey.CAPS)
                         ComponentUtils.setBackgroundTint(
                             button, Color.parseColor("#33CCFF"))
                         return button
