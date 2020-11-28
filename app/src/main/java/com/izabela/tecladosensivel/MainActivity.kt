@@ -6,6 +6,7 @@ import android.widget.Button
 import android.widget.EditText
 import androidx.appcompat.app.AppCompatActivity
 import com.izabela.tecladosensivel.components.keyboard.CustomKeyboardView
+import com.izabela.tecladosensivel.components.keyboard.controllers.TTS
 
 
 class MainActivity : AppCompatActivity() {
@@ -14,7 +15,6 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-
         val numberField: EditText = findViewById(R.id.testNumberField)
         val numberDecimalField: EditText = findViewById(R.id.testNumberDecimalField)
         val qwertyField: EditText = findViewById(R.id.testQwertyField)

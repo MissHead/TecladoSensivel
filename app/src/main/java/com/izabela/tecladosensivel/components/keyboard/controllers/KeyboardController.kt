@@ -1,13 +1,8 @@
 package com.izabela.tecladosensivel.components.keyboard.controllers
 
-import android.app.Activity
-import android.content.Context
-import android.content.ContextWrapper
-import android.speech.tts.TextToSpeech
 import android.view.KeyEvent
 import android.view.inputmethod.InputConnection
 import com.izabela.tecladosensivel.components.keyboard.KeyboardListener
-import java.util.*
 import kotlin.collections.ArrayList
 
 abstract class KeyboardController(private val inputConnection: InputConnection) {
@@ -23,18 +18,6 @@ abstract class KeyboardController(private val inputConnection: InputConnection) 
 
         private fun addCharacter(text: String, addition: Char, index: Int): String {
             return text.substring(0, index) + addition + text.substring(index)
-        }
-
-        private val textToSpeechEngine: TextToSpeech by lazy {
-            TextToSpeech(this.getApplicationContext() , TextToSpeech.OnInitListener { status ->
-                    if (status == TextToSpeech.SUCCESS) {
-                        textToSpeechEngine.language = Locale.UK
-                    }
-                })
-        }
-
-        private fun textToSpeech(text: String) {
-            TextToSpeech.speak(text, TextToSpeech.QUEUE_FLUSH, null)
         }
     }
 

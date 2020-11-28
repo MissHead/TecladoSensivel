@@ -2,6 +2,9 @@ package com.izabela.tecladosensivel.components.keyboard
 
 import android.content.Context
 import android.graphics.Color
+import android.os.Build
+import android.os.VibrationEffect
+import android.os.Vibrator
 import android.text.InputType
 import android.util.AttributeSet
 import android.view.View
@@ -12,12 +15,14 @@ import android.view.inputmethod.InputConnection
 import android.widget.EditText
 import android.widget.LinearLayout
 import android.widget.ScrollView
+import com.izabela.tecladosensivel.AdvancedFeaturesActivity
 import com.izabela.tecladosensivel.components.expandableView.ExpandableState
 import com.izabela.tecladosensivel.components.expandableView.ExpandableStateListener
 import com.izabela.tecladosensivel.components.expandableView.ExpandableView
 import com.izabela.tecladosensivel.components.keyboard.controllers.DefaultKeyboardController
 import com.izabela.tecladosensivel.components.keyboard.controllers.KeyboardController
 import com.izabela.tecladosensivel.components.keyboard.controllers.NumberDecimalKeyboardController
+import com.izabela.tecladosensivel.components.keyboard.controllers.TTS
 import com.izabela.tecladosensivel.components.keyboard.layouts.KeyboardLayout
 import com.izabela.tecladosensivel.components.keyboard.layouts.NumberDecimalKeyboardLayout
 import com.izabela.tecladosensivel.components.keyboard.layouts.NumberKeyboardLayout
@@ -36,6 +41,13 @@ class CustomKeyboardView(context: Context, attr: AttributeSet) : ExpandableView(
 
         keyboardListener = object: KeyboardListener {
             override fun characterClicked(c: Char) {
+//                TTS(AdvancedFeaturesActivity(), c.toString(),true)
+                val vibrator = context?.getSystemService(Context.VIBRATOR_SERVICE) as Vibrator
+                if (Build.VERSION.SDK_INT >= 26) {
+                    vibrator.vibrate(VibrationEffect.createOneShot(200, VibrationEffect.DEFAULT_AMPLITUDE))
+                } else {
+                    vibrator.vibrate(200)
+                }
             }
 
             override fun specialKeyClicked(key: KeyboardController.SpecialKey) {

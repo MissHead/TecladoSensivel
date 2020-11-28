@@ -11,6 +11,7 @@ import com.izabela.tecladosensivel.components.textFields.CustomTextField
 import com.izabela.tecladosensivel.components.utilities.ComponentUtils
 
 
+
 class AdvancedFeaturesActivity: AppCompatActivity() {
     private lateinit var keyboard: CustomKeyboardView
 
