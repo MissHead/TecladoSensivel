@@ -44,9 +44,9 @@ class CustomKeyboardView(context: Context, attr: AttributeSet) : ExpandableView(
 //                TTS(AdvancedFeaturesActivity(), c.toString(),true)
                 val vibrator = context?.getSystemService(Context.VIBRATOR_SERVICE) as Vibrator
                 if (Build.VERSION.SDK_INT >= 26) {
-                    vibrator.vibrate(VibrationEffect.createOneShot(200, VibrationEffect.DEFAULT_AMPLITUDE))
+                    vibrator.vibrate(VibrationEffect.createOneShot(300, VibrationEffect.DEFAULT_AMPLITUDE))
                 } else {
-                    vibrator.vibrate(200)
+                    vibrator.vibrate(300)
                 }
             }
 
@@ -72,7 +72,7 @@ class CustomKeyboardView(context: Context, attr: AttributeSet) : ExpandableView(
         })
 
         setOnClickListener({})
-        isSoundEffectsEnabled = false
+        isSoundEffectsEnabled = true
     }
 
     fun registerEditText(type: KeyboardType, field: EditText) {
@@ -83,8 +83,8 @@ class CustomKeyboardView(context: Context, attr: AttributeSet) : ExpandableView(
         field.setRawInputType(InputType.TYPE_CLASS_TEXT)
         field.setTextIsSelectable(true)
         field.showSoftInputOnFocus = false
-        field.isSoundEffectsEnabled = false
-        field.isLongClickable = false
+        field.isSoundEffectsEnabled = true
+        field.isLongClickable = true
 
         val inputConnection = field.onCreateInputConnection(EditorInfo())
         keyboards[field] = createKeyboardLayout(type, inputConnection)
@@ -107,6 +107,7 @@ class CustomKeyboardView(context: Context, attr: AttributeSet) : ExpandableView(
                 for (editText in keyboards.keys) {
                     if (editText.hasFocus()) {
                         return@OnFocusChangeListener
+
                     }
                 }
                 translateLayout()
