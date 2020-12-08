@@ -5,8 +5,10 @@ import android.graphics.Color
 import android.os.Build
 import android.os.VibrationEffect
 import android.os.Vibrator
+import android.speech.tts.TextToSpeech
 import android.text.InputType
 import android.util.AttributeSet
+import android.view.MotionEvent
 import android.view.View
 import android.view.View.OnFocusChangeListener
 import android.view.ViewGroup
@@ -22,7 +24,6 @@ import com.izabela.tecladosensivel.components.expandableView.ExpandableView
 import com.izabela.tecladosensivel.components.keyboard.controllers.DefaultKeyboardController
 import com.izabela.tecladosensivel.components.keyboard.controllers.KeyboardController
 import com.izabela.tecladosensivel.components.keyboard.controllers.NumberDecimalKeyboardController
-import com.izabela.tecladosensivel.components.keyboard.controllers.TTS
 import com.izabela.tecladosensivel.components.keyboard.layouts.KeyboardLayout
 import com.izabela.tecladosensivel.components.keyboard.layouts.NumberDecimalKeyboardLayout
 import com.izabela.tecladosensivel.components.keyboard.layouts.NumberKeyboardLayout
@@ -31,23 +32,28 @@ import com.izabela.tecladosensivel.components.textFields.CustomTextField
 import com.izabela.tecladosensivel.components.utilities.ComponentUtils
 import java.util.*
 
+
 class CustomKeyboardView(context: Context, attr: AttributeSet) : ExpandableView(context, attr) {
     private var fieldInFocus: EditText? = null
     private val keyboards = HashMap<EditText, KeyboardLayout?>()
     private val keyboardListener: KeyboardListener
+    private val vibrator = context.getSystemService(Context.VIBRATOR_SERVICE) as Vibrator
+    private val activity = AdvancedFeaturesActivity()
+
+    private fun vibrate(vibrator: Vibrator, time: Long = 300) {
+        if (Build.VERSION.SDK_INT >= 26) {
+            vibrator.vibrate(VibrationEffect.createOneShot(time, VibrationEffect.DEFAULT_AMPLITUDE))
+        } else {
+            vibrator.vibrate(time)
+        }
+    }
 
     init {
         setBackgroundColor(Color.WHITE)
 
-        keyboardListener = object: KeyboardListener {
+        keyboardListener = object : KeyboardListener {
             override fun characterClicked(c: Char) {
-//                TTS(AdvancedFeaturesActivity(), c.toString(),true)
-                val vibrator = context?.getSystemService(Context.VIBRATOR_SERVICE) as Vibrator
-                if (Build.VERSION.SDK_INT >= 26) {
-                    vibrator.vibrate(VibrationEffect.createOneShot(300, VibrationEffect.DEFAULT_AMPLITUDE))
-                } else {
-                    vibrator.vibrate(300)
-                }
+                this@CustomKeyboardView.vibrate(vibrator)
             }
 
             override fun specialKeyClicked(key: KeyboardController.SpecialKey) {
@@ -63,7 +69,7 @@ class CustomKeyboardView(context: Context, attr: AttributeSet) : ExpandableView(
             }
         }
 
-        registerListener(object: ExpandableStateListener {
+        registerListener(object : ExpandableStateListener {
             override fun onStateChange(state: ExpandableState) {
                 if (state === ExpandableState.EXPANDED) {
                     checkLocationOnScreen()
@@ -71,7 +77,19 @@ class CustomKeyboardView(context: Context, attr: AttributeSet) : ExpandableView(
             }
         })
 
-        setOnClickListener({})
+        setOnHoverListener { _, event ->
+            when (event.action) {
+                MotionEvent.ACTION_HOVER_ENTER -> this@CustomKeyboardView.vibrate(vibrator)
+                MotionEvent.ACTION_HOVER_MOVE -> this@CustomKeyboardView.vibrate(vibrator)
+                MotionEvent.ACTION_HOVER_EXIT -> this@CustomKeyboardView.vibrate(vibrator)
+            }
+            false
+        }
+
+//        setOnClickListener {
+//            this@CustomKeyboardView.vibrate(vibrator)
+//        }
+
         isSoundEffectsEnabled = true
     }
 
@@ -168,7 +186,7 @@ class CustomKeyboardView(context: Context, attr: AttributeSet) : ExpandableView(
     }
 
     private fun createKeyboardLayout(type: KeyboardType, ic: InputConnection): KeyboardLayout? {
-        when(type) {
+        when (type) {
             KeyboardType.NUMBER -> {
                 return NumberKeyboardLayout(context, createKeyboardController(type, ic))
             }
@@ -182,8 +200,11 @@ class CustomKeyboardView(context: Context, attr: AttributeSet) : ExpandableView(
         }
     }
 
-    private fun createKeyboardController(type: KeyboardType, ic: InputConnection): KeyboardController? {
-        return when(type) {
+    private fun createKeyboardController(
+        type: KeyboardType,
+        ic: InputConnection
+    ): KeyboardController? {
+        return when (type) {
             KeyboardType.NUMBER_DECIMAL -> {
                 NumberDecimalKeyboardController(ic)
             }
@@ -218,7 +239,8 @@ class CustomKeyboardView(context: Context, attr: AttributeSet) : ExpandableView(
 
                     if (fieldY > keyboardY) {
                         val deltaY = (fieldY - keyboardY)
-                        val scrollTo = (fieldParent.scrollY + deltaY + this.measuredHeight + 10.toDp)
+                        val scrollTo =
+                            (fieldParent.scrollY + deltaY + this.measuredHeight + 10.toDp)
                         fieldParent.smoothScrollTo(0, scrollTo)
                     }
                     break

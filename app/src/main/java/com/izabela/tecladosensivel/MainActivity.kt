@@ -6,7 +6,6 @@ import android.widget.Button
 import android.widget.EditText
 import androidx.appcompat.app.AppCompatActivity
 import com.izabela.tecladosensivel.components.keyboard.CustomKeyboardView
-import com.izabela.tecladosensivel.components.keyboard.controllers.TTS
 
 
 class MainActivity : AppCompatActivity() {

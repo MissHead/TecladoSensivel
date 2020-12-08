@@ -1,7 +1,9 @@
 package com.izabela.tecladosensivel.components.keyboard.controllers
 
+import android.speech.tts.TextToSpeech
 import android.view.KeyEvent
 import android.view.inputmethod.InputConnection
+import com.izabela.tecladosensivel.AdvancedFeaturesActivity
 import com.izabela.tecladosensivel.components.keyboard.KeyboardListener
 import kotlin.collections.ArrayList
 
@@ -10,6 +12,7 @@ abstract class KeyboardController(private val inputConnection: InputConnection) 
     private val listeners = ArrayList<KeyboardListener>()
     private var cursorPosition: Int = 0
     private var inputText = ""
+    private val activity = AdvancedFeaturesActivity()
 
     companion object {
         private fun deleteCharacter(text: String, index: Int): String {
@@ -25,6 +28,7 @@ abstract class KeyboardController(private val inputConnection: InputConnection) 
         updateMembers()
         handleKeyStroke(c)
         for (listener in listeners) {
+            activity.speak(c);
             listener.characterClicked(c)
         }
     }
