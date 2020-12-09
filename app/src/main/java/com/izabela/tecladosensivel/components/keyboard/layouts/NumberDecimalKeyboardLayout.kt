@@ -19,14 +19,14 @@ class NumberDecimalKeyboardLayout(context: Context, controller: KeyboardControll
         rowOne.add(createButton("1", columnWidth, '1'))
         rowOne.add(createButton("2", columnWidth, '2'))
         rowOne.add(createButton("3", columnWidth, '3'))
-        rowOne.add(createButton("⌫", columnWidth, KeyboardController.SpecialKey.BACKSPACE))
+        rowOne.add(createButton("--", columnWidth, KeyboardController.SpecialKey.BACKSPACE))
 
         val rowTwo = ArrayList<View>()
         rowTwo.add(createButton("4", columnWidth, '4'))
         rowTwo.add(createButton("5", columnWidth, '5'))
         rowTwo.add(createButton("6", columnWidth, '6'))
         if (hasNextFocus) {
-            rowTwo.add(createButton("PRÓX", columnWidth, KeyboardController.SpecialKey.NEXT))
+            rowTwo.add(createButton(">", columnWidth, KeyboardController.SpecialKey.NEXT))
         } else {
             rowTwo.add(createButton("OK", columnWidth, KeyboardController.SpecialKey.DONE))
         }
@@ -38,10 +38,10 @@ class NumberDecimalKeyboardLayout(context: Context, controller: KeyboardControll
         rowThree.add(createButton(".", columnWidth, '.'))
 
         val rowFour = ArrayList<View>()
-        rowFour.add(createButton("⇦", columnWidth, KeyboardController.SpecialKey.BACK))
+        rowFour.add(createButton("<-", columnWidth, KeyboardController.SpecialKey.BACK))
         rowFour.add(createButton("0", columnWidth, '0'))
-        rowFour.add(createButton("⇨", columnWidth, KeyboardController.SpecialKey.FORWARD))
-        rowFour.add(createButton("APAGAR", columnWidth, KeyboardController.SpecialKey.CLEAR))
+        rowFour.add(createButton("->", columnWidth, KeyboardController.SpecialKey.FORWARD))
+        rowFour.add(createButton("--", columnWidth, KeyboardController.SpecialKey.CLEAR))
 
         val rows = ArrayList<LinearLayout>()
         rows.add(createRow(rowOne))

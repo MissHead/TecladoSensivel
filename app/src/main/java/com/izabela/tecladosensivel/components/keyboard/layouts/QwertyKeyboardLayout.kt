@@ -134,7 +134,7 @@ class QwertyKeyboardLayout(context: Context, controller: KeyboardController?) :
         rowThree.add(createButton("l", columnWidth, 'l'))
         if (hasNextFocus) {
             rowThree.add(createButton(
-                "próx", (columnWidth * 1.2f), KeyboardController.SpecialKey.NEXT))
+                ">", (columnWidth * 1.2f), KeyboardController.SpecialKey.NEXT))
         } else {
             rowThree.add(createButton(
                 "+", (columnWidth * 1.2f), KeyboardController.SpecialKey.DONE))
@@ -195,7 +195,7 @@ class QwertyKeyboardLayout(context: Context, controller: KeyboardController?) :
         rowThree.add(createButton("L", columnWidth, 'L'))
         if (hasNextFocus) {
             rowThree.add(createButton(
-                "próx", (columnWidth * 1.2f), KeyboardController.SpecialKey.NEXT))
+                ">", (columnWidth * 1.2f), KeyboardController.SpecialKey.NEXT))
         } else {
             rowThree.add(createButton(
                 "+", (columnWidth * 1.2f), KeyboardController.SpecialKey.DONE))
@@ -252,7 +252,7 @@ class QwertyKeyboardLayout(context: Context, controller: KeyboardController?) :
         rowThree.add(createButton(")", columnWidth, ')'))
         if (hasNextFocus) {
             rowThree.add(createButton(
-                "próx", (columnWidth * 1.2f), KeyboardController.SpecialKey.NEXT))
+                ">", (columnWidth * 1.2f), KeyboardController.SpecialKey.NEXT))
         } else {
             rowThree.add(createButton(
                 "+", (columnWidth * 1.2f), KeyboardController.SpecialKey.DONE))
@@ -304,7 +304,7 @@ class QwertyKeyboardLayout(context: Context, controller: KeyboardController?) :
         rowThree.add(createSpacer((columnWidth * 0.4f)))
         if (hasNextFocus) {
             rowThree.add(createButton(
-                "próx", (columnWidth * 1.2f), KeyboardController.SpecialKey.NEXT))
+                ">", (columnWidth * 1.2f), KeyboardController.SpecialKey.NEXT))
         } else {
             rowThree.add(createButton(
                 "+", (columnWidth * 1.2f), KeyboardController.SpecialKey.DONE))

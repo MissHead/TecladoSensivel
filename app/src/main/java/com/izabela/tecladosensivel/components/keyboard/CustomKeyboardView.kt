@@ -15,14 +15,12 @@ import android.view.inputmethod.InputConnection
 import android.widget.EditText
 import android.widget.LinearLayout
 import android.widget.ScrollView
-import com.izabela.tecladosensivel.AdvancedFeaturesActivity
 import com.izabela.tecladosensivel.components.expandableView.ExpandableState
 import com.izabela.tecladosensivel.components.expandableView.ExpandableStateListener
 import com.izabela.tecladosensivel.components.expandableView.ExpandableView
 import com.izabela.tecladosensivel.components.keyboard.controllers.DefaultKeyboardController
 import com.izabela.tecladosensivel.components.keyboard.controllers.KeyboardController
 import com.izabela.tecladosensivel.components.keyboard.controllers.NumberDecimalKeyboardController
-import com.izabela.tecladosensivel.components.keyboard.controllers.TTS
 import com.izabela.tecladosensivel.components.keyboard.layouts.KeyboardLayout
 import com.izabela.tecladosensivel.components.keyboard.layouts.NumberDecimalKeyboardLayout
 import com.izabela.tecladosensivel.components.keyboard.layouts.NumberKeyboardLayout
@@ -31,25 +29,16 @@ import com.izabela.tecladosensivel.components.textFields.CustomTextField
 import com.izabela.tecladosensivel.components.utilities.ComponentUtils
 import java.util.*
 
+
 class CustomKeyboardView(context: Context, attr: AttributeSet) : ExpandableView(context, attr) {
     private var fieldInFocus: EditText? = null
     private val keyboards = HashMap<EditText, KeyboardLayout?>()
-    private val keyboardListener: KeyboardListener
+    private var keyboardListener: KeyboardListener
 
     init {
         setBackgroundColor(Color.WHITE)
 
-        keyboardListener = object: KeyboardListener {
-            override fun characterClicked(c: Char) {
-//                TTS(AdvancedFeaturesActivity(), c.toString(),true)
-                val vibrator = context?.getSystemService(Context.VIBRATOR_SERVICE) as Vibrator
-                if (Build.VERSION.SDK_INT >= 26) {
-                    vibrator.vibrate(VibrationEffect.createOneShot(300, VibrationEffect.DEFAULT_AMPLITUDE))
-                } else {
-                    vibrator.vibrate(300)
-                }
-            }
-
+        keyboardListener = object : KeyboardListener {
             override fun specialKeyClicked(key: KeyboardController.SpecialKey) {
                 if (key === KeyboardController.SpecialKey.DONE) {
                     translateLayout()
@@ -63,7 +52,7 @@ class CustomKeyboardView(context: Context, attr: AttributeSet) : ExpandableView(
             }
         }
 
-        registerListener(object: ExpandableStateListener {
+        registerListener(object : ExpandableStateListener {
             override fun onStateChange(state: ExpandableState) {
                 if (state === ExpandableState.EXPANDED) {
                     checkLocationOnScreen()
@@ -71,11 +60,10 @@ class CustomKeyboardView(context: Context, attr: AttributeSet) : ExpandableView(
             }
         })
 
-        setOnClickListener({})
         isSoundEffectsEnabled = true
     }
 
-    fun registerEditText(type: KeyboardType, field: EditText) {
+    fun registerEditText(type: KeyboardType, field: EditText, listener: KeyboardListener? = null) {
         if (!field.isEnabled) {
             return  // campo inativo nao tem input
         }
@@ -88,7 +76,11 @@ class CustomKeyboardView(context: Context, attr: AttributeSet) : ExpandableView(
 
         val inputConnection = field.onCreateInputConnection(EditorInfo())
         keyboards[field] = createKeyboardLayout(type, inputConnection)
-        keyboards[field]?.registerListener(keyboardListener)
+        if (listener != null) {
+            keyboards[field]?.registerListener(listener)
+        } else {
+            keyboards[field]?.registerListener(keyboardListener)
+        }
 
         field.onFocusChangeListener = OnFocusChangeListener { _: View, hasFocus: Boolean ->
             if (hasFocus) {
@@ -136,13 +128,13 @@ class CustomKeyboardView(context: Context, attr: AttributeSet) : ExpandableView(
             } else if (view is EditText) {
                 when (view.inputType) {
                     InputType.TYPE_CLASS_NUMBER -> {
-                        registerEditText(CustomKeyboardView.KeyboardType.NUMBER, view)
+                        registerEditText(KeyboardType.NUMBER, view)
                     }
                     InputType.TYPE_NUMBER_FLAG_DECIMAL -> {
-                        registerEditText(CustomKeyboardView.KeyboardType.NUMBER_DECIMAL, view)
+                        registerEditText(KeyboardType.NUMBER_DECIMAL, view)
                     }
                     else -> {
-                        registerEditText(CustomKeyboardView.KeyboardType.QWERTY, view)
+                        registerEditText(KeyboardType.QWERTY, view)
                     }
                 }
             }
@@ -168,7 +160,7 @@ class CustomKeyboardView(context: Context, attr: AttributeSet) : ExpandableView(
     }
 
     private fun createKeyboardLayout(type: KeyboardType, ic: InputConnection): KeyboardLayout? {
-        when(type) {
+        when (type) {
             KeyboardType.NUMBER -> {
                 return NumberKeyboardLayout(context, createKeyboardController(type, ic))
             }
@@ -182,8 +174,11 @@ class CustomKeyboardView(context: Context, attr: AttributeSet) : ExpandableView(
         }
     }
 
-    private fun createKeyboardController(type: KeyboardType, ic: InputConnection): KeyboardController? {
-        return when(type) {
+    private fun createKeyboardController(
+        type: KeyboardType,
+        ic: InputConnection
+    ): KeyboardController? {
+        return when (type) {
             KeyboardType.NUMBER_DECIMAL -> {
                 NumberDecimalKeyboardController(ic)
             }
@@ -218,7 +213,8 @@ class CustomKeyboardView(context: Context, attr: AttributeSet) : ExpandableView(
 
                     if (fieldY > keyboardY) {
                         val deltaY = (fieldY - keyboardY)
-                        val scrollTo = (fieldParent.scrollY + deltaY + this.measuredHeight + 10.toDp)
+                        val scrollTo =
+                            (fieldParent.scrollY + deltaY + this.measuredHeight + 10.toDp)
                         fieldParent.smoothScrollTo(0, scrollTo)
                     }
                     break

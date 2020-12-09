@@ -33,7 +33,7 @@ class NumberKeyboardLayout(context: Context, controller: KeyboardController?) :
         rowFour.add(createButton("⌫", columnWidth, KeyboardController.SpecialKey.BACKSPACE))
         rowFour.add(createButton("0", columnWidth, '0'))
         if (hasNextFocus) {
-            rowFour.add(createButton("PRÓX", columnWidth, KeyboardController.SpecialKey.NEXT))
+            rowFour.add(createButton(">", columnWidth, KeyboardController.SpecialKey.NEXT))
         } else {
             rowFour.add(createButton("OK", columnWidth, KeyboardController.SpecialKey.DONE))
         }
