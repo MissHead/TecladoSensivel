@@ -2,9 +2,6 @@ package com.izabela.tecladosensivel.components.keyboard
 
 import android.content.Context
 import android.graphics.Color
-import android.os.Build
-import android.os.VibrationEffect
-import android.os.Vibrator
 import android.text.InputType
 import android.util.AttributeSet
 import android.view.View
@@ -34,6 +31,7 @@ class CustomKeyboardView(context: Context, attr: AttributeSet) : ExpandableView(
     private var fieldInFocus: EditText? = null
     private val keyboards = HashMap<EditText, KeyboardLayout?>()
     private var keyboardListener: KeyboardListener
+    var clickListener: KeyboardListener? = null;
 
     init {
         setBackgroundColor(Color.WHITE)
@@ -78,8 +76,13 @@ class CustomKeyboardView(context: Context, attr: AttributeSet) : ExpandableView(
         keyboards[field] = createKeyboardLayout(type, inputConnection)
         if (listener != null) {
             keyboards[field]?.registerListener(listener)
+            keyboards[field]?.registerListener(keyboardListener)
         } else {
             keyboards[field]?.registerListener(keyboardListener)
+            if (clickListener != null) {
+                keyboards[field]?.registerListener(clickListener!!)
+            }
+
         }
 
         field.onFocusChangeListener = OnFocusChangeListener { _: View, hasFocus: Boolean ->

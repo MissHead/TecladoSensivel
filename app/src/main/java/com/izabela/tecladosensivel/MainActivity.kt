@@ -63,6 +63,8 @@ class MainActivity : AppCompatActivity(), TextToSpeech.OnInitListener {
         keyboard.registerEditText(CustomKeyboardView.KeyboardType.NUMBER_DECIMAL, numberDecimalField, listener)
         keyboard.registerEditText(CustomKeyboardView.KeyboardType.QWERTY, qwertyField, listener)
 
+        keyboard.clickListener = listener;
+
         keyboard.setOnClickListener {
             this@MainActivity.vibrate(this@MainActivity.vibrator!!, 300)
         }

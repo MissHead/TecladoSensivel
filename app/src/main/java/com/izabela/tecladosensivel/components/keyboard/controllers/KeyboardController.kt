@@ -1,7 +1,9 @@
 package com.izabela.tecladosensivel.components.keyboard.controllers
 
+import android.speech.tts.TextToSpeech
 import android.view.KeyEvent
 import android.view.inputmethod.InputConnection
+import com.izabela.tecladosensivel.AdvancedFeaturesActivity
 import com.izabela.tecladosensivel.components.keyboard.KeyboardListener
 import kotlin.collections.ArrayList
 

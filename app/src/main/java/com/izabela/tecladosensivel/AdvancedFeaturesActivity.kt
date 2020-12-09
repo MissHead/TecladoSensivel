@@ -45,7 +45,7 @@ class AdvancedFeaturesActivity: AppCompatActivity() {
         )
 
         keyboard = findViewById(R.id.customKeyboardView)
-//        keyboard.autoRegisterEditTexts(customFieldWrapper)
+        keyboard.autoRegisterEditTexts(customFieldWrapper)
 
         val switchActivitiesButton: Button = findViewById(R.id.switchActivitiesButton)
         switchActivitiesButton.setOnClickListener {
