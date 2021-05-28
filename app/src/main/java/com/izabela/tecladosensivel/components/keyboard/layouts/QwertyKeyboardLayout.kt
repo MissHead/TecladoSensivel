@@ -110,21 +110,23 @@ class QwertyKeyboardLayout(context: Context, controller: KeyboardController?) :
 
     private fun createLowerCaseRows(): List<LinearLayout> {
         val rowTwo = ArrayList<View>()
-        rowTwo.add(createButton("q", columnWidth, 'q'))
-        rowTwo.add(createButton("w", columnWidth, 'w'))
+        rowTwo.add(createButton("a", columnWidth, 'a'))
         rowTwo.add(createButton("e", columnWidth, 'e'))
-        rowTwo.add(createButton("r", columnWidth, 'r'))
-        rowTwo.add(createButton("t", columnWidth, 't'))
-        rowTwo.add(createButton("y", columnWidth, 'y'))
-        rowTwo.add(createButton("u", columnWidth, 'u'))
         rowTwo.add(createButton("i", columnWidth, 'i'))
         rowTwo.add(createButton("o", columnWidth, 'o'))
-        rowTwo.add(createButton("p", columnWidth, 'p'))
+        rowTwo.add(createButton("u", columnWidth, 'u'))
+        if (hasNextFocus) {
+            rowTwo.add(createButton(
+                ">", (columnWidth * 1.2f), KeyboardController.SpecialKey.NEXT))
+        } else {
+            rowTwo.add(createButton(
+                "+", (columnWidth * 1.2f), KeyboardController.SpecialKey.DONE))
+        }
 
         val rowThree = ArrayList<View>()
         rowThree.add(createSpacer((columnWidth * 0.4f)))
-        rowThree.add(createButton("a", columnWidth, 'a'))
-        rowThree.add(createButton("s", columnWidth, 's'))
+        rowThree.add(createButton("b", columnWidth, 'b'))
+        rowThree.add(createButton("c", columnWidth, 'c'))
         rowThree.add(createButton("d", columnWidth, 'd'))
         rowThree.add(createButton("f", columnWidth, 'f'))
         rowThree.add(createButton("g", columnWidth, 'g'))
@@ -132,25 +134,22 @@ class QwertyKeyboardLayout(context: Context, controller: KeyboardController?) :
         rowThree.add(createButton("j", columnWidth, 'j'))
         rowThree.add(createButton("k", columnWidth, 'k'))
         rowThree.add(createButton("l", columnWidth, 'l'))
-        if (hasNextFocus) {
-            rowThree.add(createButton(
-                ">", (columnWidth * 1.2f), KeyboardController.SpecialKey.NEXT))
-        } else {
-            rowThree.add(createButton(
-                "+", (columnWidth * 1.2f), KeyboardController.SpecialKey.DONE))
-        }
+        rowThree.add(createButton("m", columnWidth, 'm'))
 
         val rowFour = ArrayList<View>()
         rowFour.add(createCapsButton())
-        rowFour.add(createButton("z", columnWidth, 'z'))
-        rowFour.add(createButton("x", columnWidth, 'x'))
-        rowFour.add(createButton("c", columnWidth, 'c'))
-        rowFour.add(createButton("v", columnWidth, 'v'))
-        rowFour.add(createButton("b", columnWidth, 'b'))
         rowFour.add(createButton("n", columnWidth, 'n'))
-        rowFour.add(createButton("m", columnWidth, 'm'))
-        rowFour.add(createButton(",", columnWidth, ','))
-        rowFour.add(createButton(".", columnWidth, '.'))
+        rowFour.add(createButton("p", columnWidth, 'p'))
+        rowFour.add(createButton("q", columnWidth, 'q'))
+        rowFour.add(createButton("r", columnWidth, 'r'))
+        rowFour.add(createButton("s", columnWidth, 's'))
+        rowFour.add(createButton("t", columnWidth, 't'))
+        rowFour.add(createButton("v", columnWidth, 'v'))
+        rowFour.add(createButton("x", columnWidth, 'x'))
+        rowFour.add(createButton("w", columnWidth, 'w'))
+        rowFour.add(createButton("y", columnWidth, 'y'))
+        rowFour.add(createButton("z", columnWidth, 'z'))
+
         rowFour.add(createSpacer(columnWidth))
 
         val rowFive = ArrayList<View>()
@@ -171,21 +170,24 @@ class QwertyKeyboardLayout(context: Context, controller: KeyboardController?) :
 
     private fun createUpperCaseRows(): List<LinearLayout> {
         val rowTwo = ArrayList<View>()
-        rowTwo.add(createButton("Q", columnWidth, 'Q'))
-        rowTwo.add(createButton("W", columnWidth, 'W'))
+        rowTwo.add(createCapsButton())
+        rowTwo.add(createButton("A", columnWidth, 'A'))
         rowTwo.add(createButton("E", columnWidth, 'E'))
-        rowTwo.add(createButton("R", columnWidth, 'R'))
-        rowTwo.add(createButton("T", columnWidth, 'T'))
-        rowTwo.add(createButton("Y", columnWidth, 'Y'))
-        rowTwo.add(createButton("U", columnWidth, 'U'))
         rowTwo.add(createButton("I", columnWidth, 'I'))
         rowTwo.add(createButton("O", columnWidth, 'O'))
-        rowTwo.add(createButton("P", columnWidth, 'P'))
+        rowTwo.add(createButton("U", columnWidth, 'U'))
+        if (hasNextFocus) {
+            rowTwo.add(createButton(
+                ">", (columnWidth * 1.2f), KeyboardController.SpecialKey.NEXT))
+        } else {
+            rowTwo.add(createButton(
+                "+", (columnWidth * 1.2f), KeyboardController.SpecialKey.DONE))
+        }
 
         val rowThree = ArrayList<View>()
         rowThree.add(createSpacer((columnWidth * 0.4f)))
-        rowThree.add(createButton("A", columnWidth, 'A'))
-        rowThree.add(createButton("S", columnWidth, 'S'))
+        rowThree.add(createButton("B", columnWidth, 'B'))
+        rowThree.add(createButton("C", columnWidth, 'C'))
         rowThree.add(createButton("D", columnWidth, 'D'))
         rowThree.add(createButton("F", columnWidth, 'F'))
         rowThree.add(createButton("G", columnWidth, 'G'))
@@ -193,25 +195,21 @@ class QwertyKeyboardLayout(context: Context, controller: KeyboardController?) :
         rowThree.add(createButton("J", columnWidth, 'J'))
         rowThree.add(createButton("K", columnWidth, 'K'))
         rowThree.add(createButton("L", columnWidth, 'L'))
-        if (hasNextFocus) {
-            rowThree.add(createButton(
-                ">", (columnWidth * 1.2f), KeyboardController.SpecialKey.NEXT))
-        } else {
-            rowThree.add(createButton(
-                "+", (columnWidth * 1.2f), KeyboardController.SpecialKey.DONE))
-        }
+        rowThree.add(createButton("M", columnWidth, 'M'))
 
         val rowFour = ArrayList<View>()
-        rowFour.add(createCapsButton())
-        rowFour.add(createButton("Z", columnWidth, 'Z'))
-        rowFour.add(createButton("X", columnWidth, 'X'))
-        rowFour.add(createButton("C", columnWidth, 'C'))
-        rowFour.add(createButton("V", columnWidth, 'V'))
-        rowFour.add(createButton("B", columnWidth, 'B'))
+
         rowFour.add(createButton("N", columnWidth, 'N'))
-        rowFour.add(createButton("M", columnWidth, 'M'))
-        rowFour.add(createButton(",", columnWidth, ','))
-        rowFour.add(createButton(".", columnWidth, '.'))
+        rowFour.add(createButton("P", columnWidth, 'P'))
+        rowFour.add(createButton("Q", columnWidth, 'Q'))
+        rowFour.add(createButton("R", columnWidth, 'R'))
+        rowFour.add(createButton("S", columnWidth, 'S'))
+        rowFour.add(createButton("T", columnWidth, 'T'))
+        rowFour.add(createButton("V", columnWidth, 'V'))
+        rowFour.add(createButton("X", columnWidth, 'X'))
+        rowFour.add(createButton("W", columnWidth, 'W'))
+        rowFour.add(createButton("Y", columnWidth, 'Y'))
+        rowFour.add(createButton("Z", columnWidth, 'Z'))
         rowFour.add(createSpacer(columnWidth))
 
         val rowFive = ArrayList<View>()
@@ -241,6 +239,8 @@ class QwertyKeyboardLayout(context: Context, controller: KeyboardController?) :
 
         val rowThree = ArrayList<View>()
         rowThree.add(createSpacer((columnWidth * 0.5f)))
+        rowThree.add(createButton(",", columnWidth, ','))
+        rowThree.add(createButton(".", columnWidth, '.'))
         rowThree.add(createButton("@", columnWidth, '@'))
         rowThree.add(createButton("#", columnWidth, '#'))
         rowThree.add(createButton("$", columnWidth, '$'))
