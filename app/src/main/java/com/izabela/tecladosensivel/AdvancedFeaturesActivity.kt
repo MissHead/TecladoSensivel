@@ -39,7 +39,7 @@ class AdvancedFeaturesActivity: AppCompatActivity() {
         )
         customFieldWrapper.addView(
             createCustomTextField(
-                "Teclado QWERTY",
+                "Teclado Sensivel",
                 CustomKeyboardView.KeyboardType.QWERTY
             )
         )

@@ -19,7 +19,7 @@ class NumberDecimalKeyboardLayout(context: Context, controller: KeyboardControll
         rowOne.add(createButton("1", columnWidth, '1'))
         rowOne.add(createButton("2", columnWidth, '2'))
         rowOne.add(createButton("3", columnWidth, '3'))
-        rowOne.add(createButton("--", columnWidth, KeyboardController.SpecialKey.BACKSPACE))
+        rowOne.add(createButton("-", columnWidth, KeyboardController.SpecialKey.BACKSPACE))
 
         val rowTwo = ArrayList<View>()
         rowTwo.add(createButton("4", columnWidth, '4'))
@@ -41,7 +41,7 @@ class NumberDecimalKeyboardLayout(context: Context, controller: KeyboardControll
         rowFour.add(createButton("<-", columnWidth, KeyboardController.SpecialKey.BACK))
         rowFour.add(createButton("0", columnWidth, '0'))
         rowFour.add(createButton("->", columnWidth, KeyboardController.SpecialKey.FORWARD))
-        rowFour.add(createButton("--", columnWidth, KeyboardController.SpecialKey.CLEAR))
+        rowFour.add(createButton("-", columnWidth, KeyboardController.SpecialKey.CLEAR))
 
         val rows = ArrayList<LinearLayout>()
         rows.add(createRow(rowOne))

@@ -30,7 +30,7 @@ class NumberKeyboardLayout(context: Context, controller: KeyboardController?) :
         rowThree.add(createButton("9", columnWidth, '9'))
 
         val rowFour = ArrayList<View>()
-        rowFour.add(createButton("⌫", columnWidth, KeyboardController.SpecialKey.BACKSPACE))
+        rowFour.add(createButton("-", columnWidth, KeyboardController.SpecialKey.BACKSPACE))
         rowFour.add(createButton("0", columnWidth, '0'))
         if (hasNextFocus) {
             rowFour.add(createButton(">", columnWidth, KeyboardController.SpecialKey.NEXT))

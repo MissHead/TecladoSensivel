@@ -16,7 +16,7 @@ abstract class KeyboardLayout(context: Context, private val controller: Keyboard
                               var hasNextFocus: Boolean = false) : LinearLayout(context) {
 
     private var screenWidth = 0.0f
-    internal var textSize = 20.0f
+    internal var textSize = 15.0f
 
     private val Int.toDp: Int
         get() = (this / Resources.getSystem().displayMetrics.density).toInt()
